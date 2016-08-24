@@ -1,0 +1,21 @@
+name: kubectl
+version: 0
+summary: Kubectl allows you to manage a deployed kubernetes cluster
+description: |
+  Kubectl allows you to manage a deployed kubernetes cluster
+confinement: strict
+
+apps:
+  kubectl:
+    command: bin/kubectl
+    plugs:
+      - home
+      - network
+      - network-bind
+
+parts:
+  kubectl:
+    plugin: dump
+    source: .
+    organize:
+      kubectl: bin/kubectl
